@@ -92,14 +92,14 @@ CREATE TABLE REQUEST
 (
 	REQUEST_ID int NOT NULL IDENTITY(1,1) PRIMARY KEY, 
 	FIRST_NAME varchar(10) NOT NULL, 
-	LAST_NAME varchar(10) NOT NULL, 
-	FATHER_NAME varchar(25) NOT NULL, 
-	CV varchar(255) NOT NULL UNIQUE, 
-	CONTACT_NUMBER varchar(15) NOT NULL UNIQUE, 
+	LAST_NAME varchar(10) /*NOT NULL*/, 
+	FATHER_NAME varchar(25) /*NOT NULL*/, 
+	CV varchar(255) /*NOT NULL*/ UNIQUE, 
+	CONTACT_NUMBER varchar(15) /*NOT NULL*/ UNIQUE, 
 	EMAIL varchar(50) NOT NULL UNIQUE, 
 	WHY_INTERESTED varchar(500) NOT NULL, 
 	JOB_FIELD varchar(20) NOT NULL CHECK(JOB_FIELD in ('Editor', 'Content Writer')), 
-	R_STATUS varchar(20) NOT NULL CHECK(R_STATUS in ('Pending','Selected' /* others*/))
+	R_STATUS varchar(20) default 'Pending' CHECK(R_STATUS in ('Pending','Selected' /* others*/))
 )
 GO
 
